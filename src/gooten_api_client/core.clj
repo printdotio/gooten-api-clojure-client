@@ -1,4 +1,4 @@
-(ns .core
+(ns gooten-api-client.core
   (:require [cheshire.core :refer [generate-string parse-string]]
             [clojure.string :as str]
             [clj-http.client :as client])
@@ -12,7 +12,7 @@
 
 (def default-api-context
   "Default API context."
-  {:base-url        "http://localhost/api"
+  {:base-url        "https://localhost/api"
    :date-format     "yyyy-MM-dd"
    :datetime-format "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
    :debug           false

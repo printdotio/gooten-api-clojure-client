@@ -1,5 +1,5 @@
-(ns .api.languages
-  (:require [.core :refer [call-api check-required-params with-collection-format]])
+(ns gooten-api-client.api.languages
+  (:require [gooten-api-client.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
 (defn get-language-text-with-http-info

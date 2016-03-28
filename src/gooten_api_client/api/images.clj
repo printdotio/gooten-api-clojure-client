@@ -1,5 +1,5 @@
-(ns .api.images
-  (:require [.core :refer [call-api check-required-params with-collection-format]])
+(ns gooten-api-client.api.images
+  (:require [gooten-api-client.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
 (defn post-images-with-http-info

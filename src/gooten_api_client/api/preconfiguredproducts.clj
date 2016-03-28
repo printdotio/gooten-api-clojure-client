@@ -1,12 +1,12 @@
-(ns .api.preconfiguredproducts
-  (:require [.core :refer [call-api check-required-params with-collection-format]])
+(ns gooten-api-client.api.preconfiguredproducts
+  (:require [gooten-api-client.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
 (defn create-preconfiguredproducts-with-http-info
   "Insert a preconfigured product
   Insert a preconfigured product into your recipe."
   [preconfigured-product-insert version source ]
-  (call-api "/preconfiguredproducts/v/{version}/source/{source}/" :post
+  (call-api "/v/{version}/source/{source}/preconfiguredproducts/" :post
             {:path-params   {"version" version "source" source }
              :header-params {}
              :query-params  {}
@@ -27,7 +27,7 @@
   Delete a preconfigured product from your recipe."
   ([version source ] (delete-preconfiguredproducts-with-http-info version source nil))
   ([version source {:keys [sku ]}]
-   (call-api "/preconfiguredproducts/v/{version}/source/{source}/" :delete
+   (call-api "/v/{version}/source/{source}/preconfiguredproducts/" :delete
              {:path-params   {"version" version "source" source }
               :header-params {}
               :query-params  {"sku" sku }
@@ -48,7 +48,7 @@
   Get a list of your preconfigured products. The products returned are entirely specific to your recipe."
   ([country-code version source ] (get-preconfiguredproducts-with-http-info country-code version source nil))
   ([country-code version source {:keys [language-code currency-code ]}]
-   (call-api "/preconfiguredproducts/v/{version}/source/{source}/" :get
+   (call-api "/v/{version}/source/{source}/preconfiguredproducts/" :get
              {:path-params   {"version" version "source" source }
               :header-params {}
               :query-params  {"countryCode" country-code "languageCode" language-code "currencyCode" currency-code }
@@ -68,7 +68,7 @@
   "Update a preconfigured product
   Update a preconfigured product into your recipe."
   [preconfigured-product-insert version source ]
-  (call-api "/preconfiguredproducts/v/{version}/source/{source}/" :put
+  (call-api "/v/{version}/source/{source}/preconfiguredproducts/" :put
             {:path-params   {"version" version "source" source }
              :header-params {}
              :query-params  {}

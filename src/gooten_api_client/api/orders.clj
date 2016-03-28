@@ -1,5 +1,5 @@
-(ns .api.orders
-  (:require [.core :refer [call-api check-required-params with-collection-format]])
+(ns gooten-api-client.api.orders
+  (:require [gooten-api-client.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
 (defn g-et-orders-with-http-info
@@ -7,7 +7,7 @@
   Gets basic information about an order."
   ([id version source ] (g-et-orders-with-http-info id version source nil))
   ([id version source {:keys [language-code ]}]
-   (call-api "/orders/v/{version}/source/{source}/" :get
+   (call-api "/v/{version}/source/{source}/orders/" :get
              {:path-params   {"version" version "source" source }
               :header-params {}
               :query-params  {"id" id "languageCode" language-code }
@@ -27,7 +27,7 @@
   "Submit an order
   Places an order into the system. An order can be submitted as PrePayment (in order to temporarily place an order and get an ID for Paypal) using the IsPreSubmit flag."
   [order version source ]
-  (call-api "/orders/v/{version}/source/{source}/" :post
+  (call-api "/v/{version}/source/{source}/orders/" :post
             {:path-params   {"version" version "source" source }
              :header-params {}
              :query-params  {}

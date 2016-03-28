@@ -1,5 +1,5 @@
-(ns .api.paymentvalidation
-  (:require [.core :refer [call-api check-required-params with-collection-format]])
+(ns gooten-api-client.api.paymentvalidation
+  (:require [gooten-api-client.core :refer [call-api check-required-params with-collection-format]])
   (:import (java.io File)))
 
 (defn paymentvalidation-with-http-info
